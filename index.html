@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Учёт рабочих часов</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Маленькое веб-приложение</p>
+          <h1>Учёт рабочих часов</h1>
+          <p class="subtitle">
+            Введите время начала и окончания смены, а также перерыв — приложение
+            сразу покажет отработанные часы.
+          </p>
+        </div>
+        <div class="total-card">
+          <span>Итого за смену</span>
+          <strong id="totalHours">0 ч 0 мин</strong>
+        </div>
+      </header>
+
+      <section class="card">
+        <form id="workForm" class="grid">
+          <label class="field">
+            <span>Дата</span>
+            <input type="date" id="workDate" required />
+          </label>
+          <label class="field">
+            <span>Начало</span>
+            <input type="time" id="startTime" required />
+          </label>
+          <label class="field">
+            <span>Конец</span>
+            <input type="time" id="endTime" required />
+          </label>
+          <label class="field">
+            <span>Перерыв (мин)</span>
+            <input type="number" id="breakMinutes" min="0" value="30" />
+          </label>
+          <button type="submit" class="primary">Рассчитать</button>
+        </form>
+      </section>
+
+      <section class="card list-card">
+        <div class="list-header">
+          <h2>История смен</h2>
+          <button type="button" id="clearHistory" class="ghost">Очистить</button>
+        </div>
+        <div class="empty" id="emptyState">
+          Пока нет записей. Добавьте первую смену.
+        </div>
+        <ul id="historyList" class="history"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
